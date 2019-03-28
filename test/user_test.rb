@@ -27,20 +27,16 @@ class UserTest < MiniTest::Test
   def test_user_can_learn_jokes
     @sal.learn(@joke_1)
     assert_same @joke_1, @sal.jokes[0]
-    assert_equal 1, @sal.jokes.count
 
     @sal.learn(@joke_2)
     assert_same @joke_2, @sal.jokes[1]
-    assert_equal 2, @sal.jokes.count
   end
 
   def test_user_can_tell_another_user_a_joke
     @sal.tell(@ali, @joke_1)
-    assert_equal 1, @ali.jokes.count
     assert_same @joke_1, @ali.jokes[0]
 
     @sal.tell(@ali, @joke_2)
-    assert_equal 2, @ali.jokes.count
     assert_same @joke_2, @ali.jokes[1]
   end
 

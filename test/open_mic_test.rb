@@ -3,7 +3,6 @@ require 'minitest/pride'
 require './lib/joke'
 require './lib/user'
 require './lib/open_mic'
-require 'pry'
 
 class OpenMicTest < MiniTest::Test
 
@@ -33,11 +32,9 @@ class OpenMicTest < MiniTest::Test
 
   def test_open_mic_can_welcome_performers
     @open_mic.welcome(@sal)
-    assert_equal 1, @open_mic.performers.count
     assert_same @sal, @open_mic.performers[0]
 
     @open_mic.welcome(@ali)
-    assert_equal 2, @open_mic.performers.count
     assert_same @ali, @open_mic.performers[1]
   end
 

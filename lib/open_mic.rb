@@ -7,7 +7,6 @@ class OpenMic
     @location   = location
     @date       = date
     @performers = []
-    @jokes_told = []
   end
 
   def welcome(performer)
@@ -15,14 +14,10 @@ class OpenMic
   end
 
   def repeated_jokes?
-    @performers.each do |performer|
-      @jokes_told << performer.jokes
+    jokes_told = @performers.flat_map do |performer|
+      performer.jokes
     end
-    if @jokes_told.flatten.uniq.count == @jokes_told.flatten.count
-      true
-    else
-      false
-    end
+    jokes_told.uniq.count != jokes_told.count
   end
 
 end

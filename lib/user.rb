@@ -12,12 +12,12 @@ class User
   end
 
   def tell(user, joke)
-    user.jokes << joke
+    user.learn(joke)
   end
 
-  def joke_by_id(joke_id)
+  def joke_by_id(id)
     @jokes.find do |joke|
-      joke.id == joke_id
+      joke.id == id
     end
   end
 
